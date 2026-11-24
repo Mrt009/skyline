@@ -1,0 +1,14 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary exports and local tooling
+*.log
+*.tmp
+*.bak
+node_modules/
+
+# Keep coursework/source documents out of the public site repository
+SE_Lab_File_*.docx

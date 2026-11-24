@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLine - Build Your Future</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/hero-scene.webp" fetchpriority="high" type="image/webp">
+</head>
+<body>
+    <main class="landing-page" id="landingPage">
+        <!-- Main Card Container -->
+        <div class="main-card" id="mainCard">
+            <!-- Navigation Bar -->
+            <nav class="navbar">
+                <div class="logo">SkyLine</div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="mobileNavLinks" aria-label="Open navigation">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="mobileNavLinks">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#" id="openPropertyButton">Property List</a></li>
+                    <li><a href="#" id="openContactButton">Contact Us</a></li>
+                    <li><a href="#" id="openFaqButton">FAQ</a></li>
+                    <li class="mobile-auth-item"><button id="mobileSignupButton" type="button">Sign Up</button></li>
+                </ul>
+                <div class="nav-right">
+                    <button class="signup-btn" id="openAuthButton" type="button">Sign Up</button>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <div class="hero">
+                <!-- One camera layer lets the existing artwork move as a single drone shot. -->
+                <div class="hero-camera">
+                    <!-- One scene: full resort → central home → full resort. -->
+                    <div class="hero-bg">
+                        <img src="images/hero-scene.webp" alt="Luxury Resort" class="hero-image" width="1541" height="1020" fetchpriority="high" decoding="async">
+                    </div>
+
+                    <!-- Transparent depth layers supplied for the 3D parallax look. -->
+                    <div class="parallax-layer parallax-ocean" aria-hidden="true">
+                        <img src="images/parallax-ocean.webp" alt="" class="parallax-image" loading="lazy" decoding="async">
+                    </div>
+                    <div class="parallax-layer parallax-estate" aria-hidden="true">
+                        <img src="images/parallax-estate.webp" alt="" class="parallax-image" loading="lazy" decoding="async">
+                    </div>
+
+                    <!-- Hero Text Overlay -->
+                    <div class="hero-content">
+                        <p class="hero-subtitle">Build Your</p>
+                        <h1 class="hero-title">Future</h1>
+                    </div>
+
+                    <!-- Woman Figure -->
+                    <div class="woman-figure">
+                        <img src="images/woman-balcony-floor.webp" alt="" class="woman-image" loading="lazy" decoding="async">
+                    </div>
+
+                    <!-- Glass Railing -->
+                    <div class="glass-railing"></div>
+                </div>
+            </div>
+
+            <!-- Door Opening Animation Overlay -->
+            <div class="door-overlay" id="doorOverlay" aria-hidden="true">
+                <div class="door-container">
+                    <div class="door door-left" id="doorLeft">
+                        <div class="door-surface"></div>
+                    </div>
+                    <div class="door door-right" id="doorRight">
+                        <div class="door-surface">
+                            <div class="door-handle" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="site-footer site-footer-home site-footer-home-simple" aria-label="Site footer">
+                <span>Designed by <a href="https://redcapsicums.com/" target="_blank" rel="noopener noreferrer">Red Capsicums</a></span>
+                <span>© 2026 SkyLine. All rights reserved.</span>
+            </footer>
+
+            <!-- Animated sign-up / log-in experience inspired by the new reference video. -->
+            <div class="auth-overlay" id="authOverlay" aria-hidden="true">
+                <div class="auth-shell" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+                    <div class="auth-visual">
+                        <img class="auth-interior-backdrop" src="images/auth-interior.jpg" alt="Luxury interior with connected spiral staircase and city view" loading="lazy" decoding="async">
+                        <div class="auth-staircase-stage">
+                            <img class="auth-staircase" src="images/auth-staircase-still.png" alt="Sculptural spiral staircase" loading="lazy" decoding="async">
+                        </div>
+                        <div class="auth-info">
+                            <strong>Private access to<br>curated architectural<br>residences.</strong>
+                            <div class="auth-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <section class="auth-panel">
+                        <div class="auth-logo">SkyLine</div>
+                        <h2 id="authTitle">Sign Up</h2>
+                        <p class="auth-intro" id="authIntro">Create your private access to curated residences.</p>
+                        <button class="demo-login-button" id="demoLoginButton" type="button" hidden>Use demo login</button>
+
+                        <form id="authForm">
+                            <label class="auth-field name-field">
+                                <span>Name</span>
+                                <input type="text" name="name" autocomplete="name" placeholder="Your name">
+                            </label>
+                            <label class="auth-field">
+                                <span>Email</span>
+                                <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                            </label>
+                            <label class="auth-field">
+                                <span>Password</span>
+                                <input type="password" name="password" autocomplete="new-password" placeholder="••••••••" required>
+                                <button class="password-toggle" type="button" aria-label="Show password">Show</button>
+                            </label>
+                            <label class="auth-consent name-field">
+                                <input type="checkbox" name="updates">
+                                <span>Send me private property updates</span>
+                            </label>
+                            <button class="auth-submit" id="authSubmit" type="submit">Create Account</button>
+                        </form>
+
+                        <p class="auth-switch-line"><span id="authSwitchPrompt">Have an account?</span>
+                            <button class="auth-switch" id="authSwitch" type="button">Log In</button>
+                        </p>
+                        <button class="auth-home-button" id="authHomeButton" type="button">Back to home</button>
+                        <p class="auth-status" id="authStatus" role="status" aria-live="polite"></p>
+                    </section>
+                </div>
+                <div class="auth-notice" id="authNotice" aria-hidden="true">
+                    <div class="auth-notice-card" role="dialog" aria-modal="true" aria-labelledby="authNoticeTitle">
+                        <button class="auth-notice-close" id="authNoticeClose" type="button" aria-label="Close membership notice">×</button>
+                        <span class="auth-notice-kicker">Membership request received</span>
+                        <h3 id="authNoticeTitle">Thank you for registering.</h3>
+                        <p>You will shortly be informed regarding your membership.</p>
+                        <button class="auth-notice-button" id="authNoticeContinue" type="button">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-screen Contact view. The page opens with the same calm, cinematic settle as the reference. -->
+            <div class="site-overlay contact-overlay" id="contactOverlay" aria-hidden="true">
+                <div class="site-shell contact-shell" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+                    <div class="site-topbar">
+                        <div class="site-logo">SkyLine</div>
+                        <button class="page-mobile-menu-toggle" type="button" data-page-menu-toggle aria-expanded="false" aria-label="Open navigation">
+                            <span></span><span></span><span></span>
+                        </button>
+                        <button class="back-button" type="button" data-close-site>Back to home</button>
+                    </div>
+                    <div class="contact-layout">
+                        <div class="contact-photo-panel">
+                            <div class="contact-photo-stack" aria-live="off">
+                                <img src="images/contact-scene-1.jpg" alt="Desert modern residence" class="contact-photo is-active" loading="lazy" decoding="async">
+                                <img src="images/contact-scene-2.jpg" alt="Terrace overlooking the sea" class="contact-photo" loading="lazy" decoding="async">
+                                <img src="images/contact-scene-3.jpg" alt="Oceanfront villa terrace" class="contact-photo" loading="lazy" decoding="async">
+                                <img src="images/contact-scene-4.png" alt="High-rise ocean-view terrace" class="contact-photo" loading="lazy" decoding="async">
+                                <img src="images/contact-scene-5.png" alt="Modern courtyard residence" class="contact-photo" loading="lazy" decoding="async">
+                            </div>
+                            <div class="photo-wash"></div>
+                            <div class="contact-photo-copy">
+                                <span>PRIVATE RESIDENCES</span>
+                                <strong class="contact-quote" aria-live="polite">Let the view<br>find you.</strong>
+                            </div>
+                        </div>
+                        <section class="contact-form-panel">
+                            <p class="eyebrow">Contact our property advisor</p>
+                            <h2 id="contactTitle">Start a<br><em>conversation.</em></h2>
+                            <p class="page-lede">Tell us what you are looking for and we will curate a quiet shortlist of residences around the world.</p>
+                            <form id="contactForm" class="contact-form">
+                                <label><span>Your name</span><input type="text" name="name" placeholder="Name" required></label>
+                                <label><span>Email address</span><input type="email" name="email" placeholder="you@example.com" required></label>
+                                <label><span>How can we help?</span><textarea name="message" rows="3" placeholder="I am looking for..."></textarea></label>
+                                <button type="submit" class="lime-button">Send enquiry <span>↗</span></button>
+                                <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+                            </form>
+                        </section>
+                    </div>
+                    <div class="contact-footer-line"><span>Worldwide property guidance</span><span>hello@skyline.example</span><span>+1 212 555 0198</span></div>
+                    <footer class="site-footer site-footer-contact site-footer-contact-simple" aria-label="Site footer">
+                        <span>Designed by <a href="https://redcapsicums.com/" target="_blank" rel="noopener noreferrer">Red Capsicums</a></span>
+                        <span>© 2026 SkyLine. All rights reserved.</span>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- FAQ view follows the reference video's centered editorial FAQ layout. -->
+            <div class="site-overlay faq-overlay" id="faqOverlay" aria-hidden="true">
+                <div class="site-shell faq-shell" role="dialog" aria-modal="true" aria-labelledby="faqTitle">
+                    <div class="site-topbar faq-topbar">
+                        <div class="site-logo">SkyLine</div>
+                        <button class="page-mobile-menu-toggle" type="button" data-page-menu-toggle aria-expanded="false" aria-label="Open navigation">
+                            <span></span><span></span><span></span>
+                        </button>
+                        <button class="back-button" type="button" data-close-site>Back to home</button>
+                    </div>
+                    <header class="faq-heading">
+                        <h2 id="faqTitle">Frequently Asked Questions</h2>
+                        <p>Everything you need to know about acquiring a coastal residence with SkyLine.</p>
+                    </header>
+                    <div class="faq-content">
+                        <aside class="faq-sidebar">
+                            <div class="faq-side-tabs">
+                                <button class="is-active" type="button" data-faq-category="buying">Buying</button>
+                                <button type="button" data-faq-category="viewings">Private Viewings</button>
+                                <button type="button" data-faq-category="logistics">Logistics &amp; Title</button>
+                                <button type="button" data-faq-category="investment">Investment</button>
+                            </div>
+                            <div class="faq-side-image">
+                                <img id="faqCategoryImage" src="images/faq-interior.png" alt="Buying guidance" loading="lazy" decoding="async">
+                                <strong>Transparent guidance<br>at every step.</strong>
+                            </div>
+                        </aside>
+                        <section class="faq-list" id="faqQuestionList" aria-label="Frequently asked questions">
+                            <article class="faq-item is-open">
+                                <button class="faq-question" type="button" aria-expanded="true">How is every property verified?<span>−</span></button>
+                                <div class="faq-answer"><p>Every residence is reviewed by our local team for title, build quality, access, and the details that make a home feel right in person.</p></div>
+                            </article>
+                            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Can international buyers purchase remotely?<span>+</span></button><div class="faq-answer"><p>Yes. We arrange secure virtual tours, local representation, and a clear digital review process before you travel.</p></div></article>
+                            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">How do I book a private viewing?<span>+</span></button><div class="faq-answer"><p>Share your preferred dates through Contact Us and your advisor will build a private viewing route around your shortlist.</p></div></article>
+                            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">What is the typical closing timeline?<span>+</span></button><div class="faq-answer"><p>Timing varies by market, but your advisor will map every milestone from offer to handover before you commit.</p></div></article>
+                            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Are architectural plans and 3D tours included?<span>+</span></button><div class="faq-answer"><p>For qualifying residences, you receive the available plans, photography, and immersive tour material in one private dossier.</p></div></article>
+                            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">How are ocean properties protected?<span>+</span></button><div class="faq-answer"><p>We explain local planning, maintenance, insurance, and coastal considerations in plain language for every property.</p></div></article>
+                        </section>
+                    </div>
+                    <div class="faq-cta">
+                        <img src="images/faq-pool.png" alt="Infinity pool at a coastal residence" loading="lazy" decoding="async">
+                        <div><strong>Still have questions? Talk directly with a<br>property advisor.</strong></div>
+                        <button type="button" class="lime-button" data-open-contact>Contact advisor <span>↗</span></button>
+                    </div>
+                    <footer class="site-footer site-footer-light" aria-label="Site footer">
+                        <div class="site-footer-main"><div class="site-footer-brand"><strong>SkyLine</strong><span class="site-footer-rule"></span><p>Curated residences, made to move.<br>Built for your future.</p><a class="site-footer-credit" href="https://redcapsicums.com/" target="_blank" rel="noopener noreferrer">Designed by Red Capsicums</a></div><nav class="site-footer-column" aria-label="Explore"><h3>Explore</h3><a href="#">Home</a><a href="#">Property List</a><a href="#">FAQ</a></nav><nav class="site-footer-column" aria-label="Information"><h3>Info</h3><a href="#">Contact</a><a href="#">Private Viewings</a><a href="#">Membership</a><a href="#">Advisory</a></nav><nav class="site-footer-column" aria-label="Follow"><h3>Follow</h3><a href="#">Instagram</a><a href="#">Twitter</a><a href="#">LinkedIn</a></nav></div><div class="site-footer-bottom"><span>© 2026 SkyLine. All rights reserved.</span><span><a href="#">Privacy Policy</a><i>·</i><a href="#">Terms of Service</a></span></div>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- About Us overlay -->
+            <div class="site-overlay about-overlay" id="aboutOverlay" aria-hidden="true">
+                <div class="about-page" role="dialog" aria-modal="true">
+                    <header class="property-nav">
+                        <button class="page-mobile-menu-toggle" type="button" data-page-menu-toggle aria-expanded="false" aria-label="Open navigation">
+                            <span></span><span></span><span></span>
+                        </button>
+                        <button class="property-back" type="button" data-close-site>Back to home</button>
+                    </header>
+                    <main class="about-scroll">
+                        <!-- Hero -->
+                        <section class="about-hero about-reveal">
+                            <p class="about-eyebrow">About SkyLine</p>
+                            <h1 class="about-title">Architecture<br>Beyond Convention</h1>
+                            <p class="about-subtitle">We curate residences where structural integrity meets spatial artistry — each property verified, every detail considered, so your investment speaks for itself.</p>
+                            <div class="about-hero-image">
+                                <img src="images/about/about_hero.jpg" alt="Architectural masterpiece residence" loading="lazy" decoding="async">
+                                <div class="about-hero-badges">
+                                    <span>Verified Structures</span>
+                                    <span>Private Market Access</span>
+                                    <span>End-to-End Advisory</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Metrics -->
+                        <section class="about-metrics about-reveal">
+                            <div class="about-metric">
+                                <strong data-about-count="12" data-suffix="+">0</strong>
+                                <span>Years of Practice</span>
+                            </div>
+                            <div class="about-metric">
+                                <strong data-about-count="1200" data-suffix="+" data-comma="true">0</strong>
+                                <span>Curated Residences</span>
+                            </div>
+                            <div class="about-metric">
+                                <strong data-about-count="4.8" data-prefix="$" data-suffix="B" data-decimal="true">0</strong>
+                                <span>Advisory Volume</span>
+                            </div>
+                            <div class="about-metric">
+                                <strong data-about-count="100" data-suffix="%">0</strong>
+                                <span>Title Verified</span>
+                            </div>
+                        </section>
+
+                        <!-- Philosophy -->
+                        <section class="about-philosophy about-reveal">
+                            <div>
+                                <p class="about-eyebrow">Our Philosophy</p>
+                                <h2 class="about-section-title">Three Pillars of Practice</h2>
+                                <div class="about-pillars">
+                                    <button class="about-pillar-btn active" type="button" data-about-pillar="vetting">Vetting</button>
+                                    <button class="about-pillar-btn" type="button" data-about-pillar="craft">Craft</button>
+                                    <button class="about-pillar-btn" type="button" data-about-pillar="acquisition">Acquisition</button>
+                                </div>
+                                <div class="about-pillar-content">
+                                    <h3 id="aboutPillarTitle">Structural &amp; Spatial Due Diligence</h3>
+                                    <p id="aboutPillarBody">Every residence undergoes a 120-point structural assessment before it reaches your shortlist. We examine foundation integrity, material provenance, environmental resilience, and spatial flow — ensuring the architecture performs as beautifully as it presents.</p>
+                                </div>
+                            </div>
+                            <div class="about-philosophy-image">
+                                <img id="aboutPillarImage" src="images/about/about_philosophy.jpg" alt="Architectural model and materials on a studio table" loading="lazy" decoding="async">
+                            </div>
+                        </section>
+
+                        <!-- Advisory -->
+                        <section class="about-advisory about-reveal">
+                            <div class="about-advisory-image">
+                                <img src="images/about/about_advisory.jpg" alt="Advisory meeting" loading="lazy" decoding="async">
+                            </div>
+                            <div>
+                                <p class="about-eyebrow">The Process</p>
+                                <h2 class="about-section-title">Your Advisory Journey</h2>
+                                <p class="about-advisory-desc">From initial consultation to key handover, every step is orchestrated to protect your interests and amplify your investment potential.</p>
+                                <div class="about-steps">
+                                    <div class="about-step">
+                                        <span>01</span>
+                                        <div>
+                                            <strong>Discovery &amp; Alignment</strong>
+                                            <small>We learn your vision — architectural preferences, lifestyle requirements, investment parameters — and curate an initial portfolio.</small>
+                                        </div>
+                                    </div>
+                                    <div class="about-step">
+                                        <span>02</span>
+                                        <div>
+                                            <strong>Verification &amp; Shortlisting</strong>
+                                            <small>Each candidate property undergoes structural, legal, and market due diligence. Only verified residences reach your shortlist.</small>
+                                        </div>
+                                    </div>
+                                    <div class="about-step">
+                                        <span>03</span>
+                                        <div>
+                                            <strong>Acquisition &amp; Handover</strong>
+                                            <small>We negotiate terms, coordinate legal transfer, and manage every detail through to key handover — your move-in, perfected.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- CTA -->
+                        <section class="about-cta about-reveal">
+                            <p class="about-eyebrow">Get Started</p>
+                            <h2 class="about-section-title">Begin Your Journey</h2>
+                            <p class="about-advisory-desc">Schedule a private consultation to explore residences matched to your vision.</p>
+                            <button class="about-cta-btn" type="button" data-open-consultation>Book a Consultation</button>
+                        </section>
+                        <footer class="site-footer site-footer-light" aria-label="Site footer">
+                            <div class="site-footer-main"><div class="site-footer-brand"><strong>SkyLine</strong><span class="site-footer-rule"></span><p>Curated residences, made to move.<br>Built for your future.</p><a class="site-footer-credit" href="https://redcapsicums.com/" target="_blank" rel="noopener noreferrer">Designed by Red Capsicums</a></div><nav class="site-footer-column" aria-label="Explore"><h3>Explore</h3><a href="#">Home</a><a href="#">Property List</a><a href="#">FAQ</a></nav><nav class="site-footer-column" aria-label="Information"><h3>Info</h3><a href="#">Contact</a><a href="#">Private Viewings</a><a href="#">Membership</a><a href="#">Advisory</a></nav><nav class="site-footer-column" aria-label="Follow"><h3>Follow</h3><a href="#">Instagram</a><a href="#">Twitter</a><a href="#">LinkedIn</a></nav></div><div class="site-footer-bottom"><span>© 2026 SkyLine. All rights reserved.</span><span><a href="#">Privacy Policy</a><i>·</i><a href="#">Terms of Service</a></span></div>
+                        </footer>
+                    </main>
+                    <div class="consultation-modal" id="consultationModal" aria-hidden="true">
+                        <div class="consultation-card" role="dialog" aria-modal="true" aria-labelledby="consultationTitle">
+                            <button class="consultation-close" type="button" data-close-consultation aria-label="Close consultation form">×</button>
+                            <p class="consultation-eyebrow">Private advisory</p>
+                            <h2 id="consultationTitle">Schedule a Studio Briefing</h2>
+                            <p class="consultation-intro">Leave your details and our advisory desk will arrange a private session.</p>
+                            <form id="consultationForm" class="consultation-form">
+                                <input type="text" name="name" placeholder="Full Name" aria-label="Full Name" required>
+                                <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" required>
+                                <input type="text" name="preference" placeholder="Preferred Region or Residence Style" aria-label="Preferred Region or Residence Style" required>
+                                <button type="submit">Request Consultation</button>
+                                <p class="consultation-status" id="consultationStatus" role="status" aria-live="polite"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monte-inspired Property List journey from the supplied walkthrough. -->
+            <div class="site-overlay property-overlay" id="propertyOverlay" aria-hidden="true">
+                <div class="property-page" role="dialog" aria-modal="true" aria-labelledby="propertyPageTitle">
+                    <header class="property-nav">
+                        
+                        
+                        <button class="property-back" type="button" data-close-site>Back to home</button>
+                    </header>
+                    <main class="property-scroll" id="propertyScroll">
+                        <section class="property-hero property-reveal">
+                            <div class="property-hero-copy">
+                                <p class="property-kicker">Dubai / 2026 collection</p>
+                                <h2 id="propertyPageTitle">
+                                    <span class="property-title-line">Real Estate</span>
+                                    <span class="property-title-line">in Dubai:</span>
+                                    <em>
+                                        <span class="property-title-line">Ideal for</span>
+                                        <span class="property-title-line">Living and</span>
+                                        <span class="property-title-line">Investing</span>
+                                    </em>
+                                </h2>
+                                <p>Exceptional residences, selected for the way you want to live.</p>
+                                <button class="property-pill" type="button" data-scroll-to="portfolio">Explore portfolio <span>↗</span></button>
+                            </div>
+                            <div class="property-hero-image">
+                                <img src="images/monte/01_hero_and_skyline/01_property_list_hero.png" alt="Burj Al Arab beach residence" loading="lazy" decoding="async">
+                                <span class="hero-counter">01 / 05</span>
+                            </div>
+                        </section>
+
+                        <section class="property-marquee property-reveal">
+                            <img src="images/monte/01_hero_and_skyline/02_dubai_twilight_skyline_canal.webp" alt="Dubai twilight skyline" loading="lazy" decoding="async">
+                            <div class="marquee-shade"></div>
+                            <div class="marquee-copy">
+                                <p><span>Own a place in the future</span></p>
+                                <strong><span>From $25,000</span><span><em>initial payment</em> · interest-free</span></strong>
+                            </div>
+                            <span class="marquee-mark">SkyLine / DUBAI</span>
+                        </section>
+
+                        <section class="property-section property-dark property-reveal" id="portfolio">
+                            <div class="property-section-heading"><div><p class="property-kicker">Curated residences</p><h3>Explore Our Property Portfolio</h3></div></div>
+                            <div class="portfolio-grid">
+                                <article class="portfolio-card"><div class="portfolio-image"><img src="images/monte/02_property_portfolio/03_sheikh_zayed_road_towers.webp" alt="Sheikh Zayed Road towers" loading="lazy" decoding="async"><span>01</span><div class="portfolio-hover-info"><b>Dubai Marina</b><span>From $290K · 10 years</span><span>Yield 8.0%</span><span>Completion 09/2025</span></div></div><div><strong>Sheikh Zayed Road Towers</strong><small>Dubai · From $480,000</small></div></article>
+                                <article class="portfolio-card"><div class="portfolio-image"><img src="images/monte/02_property_portfolio/04_skyline_apartment_living_room.webp" alt="Skyline apartment living room" loading="lazy" decoding="async"><span>02</span><div class="portfolio-hover-info"><b>Downtown Dubai</b><span>From $650K · Flexible plan</span><span>Furnished option</span><span>Ready to move in</span></div></div><div><strong>Skyline Apartment</strong><small>Downtown Dubai · From $650,000</small></div></article>
+                                <article class="portfolio-card"><div class="portfolio-image"><img src="images/monte/02_property_portfolio/05_executive_skyline_office.webp" alt="Executive skyline office" loading="lazy" decoding="async"><span>03</span><div class="portfolio-hover-info"><b>Business Bay</b><span>From $720K · Prime address</span><span>Yield 7.5%</span><span>Private viewing</span></div></div><div><strong>Executive Skyline Office</strong><small>Business Bay · From $720,000</small></div></article>
+                                <article class="portfolio-card"><div class="portfolio-image"><img src="images/monte/02_property_portfolio/06_rooftop_pool_burj_khalifa.webp" alt="Rooftop pool near Burj Khalifa" loading="lazy" decoding="async"><span>04</span><div class="portfolio-hover-info"><b>Downtown Dubai</b><span>From $890K · Skyline view</span><span>Pool residence</span><span>Limited release</span></div></div><div><strong>Rooftop Pool Residence</strong><small>Downtown Dubai · From $890,000</small></div></article>
+                            </div>
+                        </section>
+
+                        <section class="property-section property-light property-reveal property-types-section">
+                            <div class="types-stage">
+                                <div class="types-topline"><span>Explore All<br>Our Properties <img src="images/monte/03_about_and_team/09_team_02_female_advisor_bw.webp" alt="Property advisor" loading="lazy" decoding="async"></span><button type="button">Catalog Download <b>↓</b></button></div>
+                                <div class="types-tools" aria-label="Property view controls"><button type="button" aria-label="Focus view">⌂</button><button type="button" aria-label="Open catalog">↗</button></div>
+                                <div class="type-grid">
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/14_type_01_luxury_villas.webp" alt="Luxury villas" loading="lazy" decoding="async"><div><span>01</span><strong>Luxury Villas</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/15_type_02_penthouse_suites.webp" alt="Penthouse suites" loading="lazy" decoding="async"><div><span>02</span><strong>Penthouse Suites</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/16_type_03_apartments.webp" alt="Apartments" loading="lazy" decoding="async"><div><span>03</span><strong>Apartments</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/17_type_04_beachfront_properties.webp" alt="Beachfront properties" loading="lazy" decoding="async"><div><span>04</span><strong>Beachfront Properties</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/19_type_06_commercial_spaces.webp" alt="Commercial spaces" loading="lazy" decoding="async"><div><span>06</span><strong>Commercial Spaces</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/20_type_07_townhouses.webp" alt="Townhouses" loading="lazy" decoding="async"><div><span>07</span><strong>Townhouses</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/21_type_08_waterfront_homes.webp" alt="Waterfront homes" loading="lazy" decoding="async"><div><span>08</span><strong>Waterfront Homes</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/22_type_09_holiday_homes.webp" alt="Holiday homes" loading="lazy" decoding="async"><div><span>09</span><strong>Holiday Homes</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/24_type_11_eco_friendly_properties.webp" alt="Eco-friendly properties" loading="lazy" decoding="async"><div><span>11</span><strong>Eco-friendly Properties</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/18_type_05_golf_course_residences.webp" alt="Golf course residences" loading="lazy" decoding="async"><div><span>05</span><strong>Golf Course Residences</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/23_type_10_investment_loft.webp" alt="Investment lofts" loading="lazy" decoding="async"><div><span>10</span><strong>Investment</strong></div></article>
+                                    <article class="type-card"><img src="images/monte/05_property_types_grid/25_type_12_desert_retreats.webp" alt="Desert retreats" loading="lazy" decoding="async"><div><span>12</span><strong>Desert Retreats</strong></div></article>
+                                </div>
+                                <div class="types-callout">
+                                    <span>Explore Our Diverse<br>Range of Property Types<br>and Find Your Perfect</span>
+                                    <button type="button">Catalog Download <b>↗</b></button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="property-section property-light property-reveal property-stats-section">
+                            <div class="proof-copy">
+                                <p class="proof-intro">At SkyLine, we offer more than just real estate services; we provide an unparalleled experience tailored to meet your needs and exceed your expectations.</p>
+                                <div class="proof-team">
+                                    <div class="proof-avatars">
+                                        <img src="images/monte/03_about_and_team/08_team_01_founder_ethan_bw.webp" alt="Ethan, founder" loading="lazy" decoding="async">
+                                        <img src="images/monte/03_about_and_team/09_team_02_female_advisor_bw.webp" alt="Property advisor" loading="lazy" decoding="async">
+                                        <img src="images/monte/03_about_and_team/10_team_03_male_specialist_bw.webp" alt="Property specialist" loading="lazy" decoding="async">
+                                        <img src="images/monte/03_about_and_team/11_team_04_senior_director_bw.webp" alt="Senior director" loading="lazy" decoding="async">
+                                    </div>
+                                    <span>Meet Our<br><strong>Professional Team</strong></span>
+                                </div>
+                                <div class="proof-metrics">
+                                    <div class="proof-metric"><strong data-value="84" data-suffix="+">0+</strong><span>Successful<br>Transactions Monthly</span></div>
+                                    <div class="proof-metric"><strong data-value="82" data-suffix="%">0%</strong><span>Customer<br>Satisfaction Rate</span></div>
+                                    <div class="proof-metric"><strong data-value="421">0</strong><span>Exquisite Properties<br>Ready for Your Selection</span></div>
+                                </div>
+                            </div>
+                            <div class="proof-visual">
+                                <img src="images/monte/03_about_and_team/07_white_arch_burj_khalifa_terrace.webp" alt="Architectural terrace overlooking Dubai" loading="lazy" decoding="async">
+                                <button class="proof-contact" type="button" data-open-contact>◉&nbsp; Contact Us Now</button>
+                                <div class="proof-profile">
+                                    <img src="images/monte/03_about_and_team/09_team_02_female_advisor_bw.webp" alt="Property advisor" loading="lazy" decoding="async">
+                                    <span><small>Meet Our</small><strong>Get The Consultation<br>With Our Expert.</strong></span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="ownership-section property-reveal">
+                            <p class="property-kicker">Path to Smart Ownership</p>
+                            <div class="ownership-orbit" aria-label="Three steps to smart ownership">
+                                <div class="ownership-node ownership-node-one"><small>01</small><strong>Discover</strong></div>
+                                <div class="ownership-node ownership-node-two" role="button" tabindex="0" aria-label="Expand Smart Ownership"><small>02</small><strong>Choose</strong><span class="ownership-final-label">Smart<br>Ownership</span></div>
+                                <div class="ownership-node ownership-node-three"><small>03</small><strong>Own</strong></div>
+                            </div>
+                            <button class="ownership-catalog" type="button">Catalog Download <b>↓</b></button>
+                        </section>
+
+                        <section class="property-end property-reveal"><p class="property-kicker">Path to smart ownership</p><h3>Let’s find your<br><em>place in the city.</em></h3><button class="property-pill" type="button" data-close-site>Back to home <span>↗</span></button></section>
+                        <footer class="site-footer site-footer-dark" aria-label="Site footer">
+                            <div class="site-footer-main"><div class="site-footer-brand"><strong>SkyLine</strong><span class="site-footer-rule"></span><p>Curated residences, made to move.<br>Built for your future.</p><a class="site-footer-credit" href="https://redcapsicums.com/" target="_blank" rel="noopener noreferrer">Designed by Red Capsicums</a></div><nav class="site-footer-column" aria-label="Explore"><h3>Explore</h3><a href="#">Home</a><a href="#">Property List</a><a href="#">FAQ</a></nav><nav class="site-footer-column" aria-label="Information"><h3>Info</h3><a href="#">Contact</a><a href="#">Private Viewings</a><a href="#">Membership</a><a href="#">Advisory</a></nav><nav class="site-footer-column" aria-label="Follow"><h3>Follow</h3><a href="#">Instagram</a><a href="#">Twitter</a><a href="#">LinkedIn</a></nav></div><div class="site-footer-bottom"><span>© 2026 SkyLine. All rights reserved.</span><span><a href="#">Privacy Policy</a><i>·</i><a href="#">Terms of Service</a></span></div>
+                        </footer>
+                    </main>
+                </div>
+            </div>
+            <div class="page-mobile-menu" id="pageMobileMenu" aria-hidden="true">
+                <div class="page-mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+                    <div class="page-mobile-menu-heading">
+                        <strong>SkyLine</strong>
+                        <button type="button" data-page-menu-close aria-label="Close navigation">×</button>
+                    </div>
+                    <nav>
+                        <a href="#" data-page-target="home">Home</a>
+                        <a href="#" data-page-target="property">Property List</a>
+                        <a href="#" data-page-target="contact">Contact Us</a>
+                        <a href="#" data-page-target="faq">FAQ</a>
+                        <button type="button" data-page-target="signup">Sign Up</button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

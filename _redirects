@@ -1,0 +1,2 @@
+# This is a static site. Keep unknown paths from exposing directory behavior.
+/404 /index.html 404
